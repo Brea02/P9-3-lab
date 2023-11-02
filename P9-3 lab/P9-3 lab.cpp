@@ -49,22 +49,43 @@ void displayRun(int values[], int size) {
 	for (int roll = 0; roll < 20; roll++) {
 		values[roll] = rolldie();
 	}
-	int prev = values[0];
+	int prev = values[0]; 
 
-	for (int i = 1; i < 20; i++) {
-		//cout << values[i] << " ";
-	
-		for (int i = 1; i < 20; i++) {
-			if (values[i] == prev) {
-				cout << "(" << prev << " " << values[i] << ") ";
+
+	for (int i = 1; i < 21; i++) {
+		if (values[i] == prev) {
+			cout << "(" << prev << " " << values[i];
+			int j = values[i + 1];
+			if (values[i] == j) {
+				cout << " " << j;
+				prev = j;
 			}
 			else {
-				cout << prev << " ";
-				prev = values[i];
+				cout << ") ";
+				i++;
+				prev = j;
 			}
 		}
-		return;
+		else {
+			cout << prev << " ";
+			prev = values[i];
+		}
 	}
+
+
+	/* base
+	for (int i = 1; i < 21; i++) {
+		if (values[i] == prev) {
+			cout << "(" << prev << " " << values[i] << ") ";
+			i++
+		}
+		else {
+			cout << prev << " ";
+			prev = values[i];
+		}
+	}
+	*/
+
 }
 
 /* gutted display
