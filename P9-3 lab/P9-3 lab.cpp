@@ -32,7 +32,7 @@ bool hasRun(int values[], int size) {
 	int dupeCount = 0;
 	for (int i = 1; i < 6; i++) {
 		if (values[i] == prev) {
-			dupeCount++;
+			dupeCount += 1;
 		}
 		else {
 			prev = values[i];
